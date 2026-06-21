@@ -2,9 +2,10 @@ package config
 
 import (
 	"fmt"
-	"github.com/ilyakaznacheev/cleanenv"
 	"log"
 	"time"
+
+	"github.com/ilyakaznacheev/cleanenv"
 )
 
 type Config struct {
@@ -42,7 +43,7 @@ type RedisConfig struct {
 
 func MustLoadEnv() *Config {
 	cfg := &Config{}
-	err := cleanenv.ReadConfig(".env", cfg)
+	err := cleanenv.ReadConfig("./deployment/.env", cfg)
 	if err != nil {
 		log.Fatal("cannot load config:", err)
 	}
